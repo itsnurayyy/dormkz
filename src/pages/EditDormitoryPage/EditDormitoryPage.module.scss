@@ -1,0 +1,118 @@
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.back {
+  font-size: 16px;
+  color: #E32636;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.block {
+  padding-right: 24px;
+  overflow-y: scroll;
+  flex: 1;
+
+  &::-webkit-scrollbar{
+     width: 15px;
+  }
+
+  &::-webkit-scrollbar-track{
+      background: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb{
+      background: #E32636;
+      border-radius: 10px;
+      border: 3px solid #fff;
+  }
+}
+
+.file {
+  display: none;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding: 8px 18px;
+  background: #E32636;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 16px;
+  transition: 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(#E32636, 0.9);
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 8px 24px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 12px;
+  resize: none;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.amenties {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  margin-bottom: 16px;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border: 1px solid #dcdcdc;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.preview {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 8px;
+}

@@ -1,0 +1,39 @@
+.sidebar {
+  height: 100%;
+  width: 320px;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #dcdcdc;
+}
+
+.part {
+  width: 100%;
+
+  &:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+  }
+}
+
+.logo {
+  padding: 0 32px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.link {
+  display: block;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  transition: 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: #f4f4f4;
+  }
+}
