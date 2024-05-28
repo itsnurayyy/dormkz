@@ -1,114 +1,556 @@
-.img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  margin-bottom: 24px;
-}
+$primaryColor: hsl(348, 92%, 38%);
+$secondaryColor: hsl(180, 17%, 95%);
+$colorOne: hsl(15, 74%, 70%);
+$colorTwo: hsl(68, 85%, 35%);
+$hoverColor: hsl(225, 56%, 59%);
+$whiteColor: hsl(0, 0%, 100%);
+$blackColor: hsl(0, 0%, 12%);
+$textColor: hsl(240, 1%, 48%);
+$borderColor: hsl(0, 0%, 83%);
+$whiteColorDim: hsl(0, 0%, 93%);
+$grayBg: hsl(0, 0%, 96%);
+$grayText: rgb(145, 145, 145);
+$inputColor: hsl(330, 12%, 97%);
+$boxShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+$transition: 0.4s ease;
 
-.title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.description {
-  font-size: 16px;
-  font-weight: 500;
-  color: #999;
-  margin-bottom: 40px;
-}
-
-.subtitle {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.input {
-  width: 100%;
-  padding: 12px 24px;
-  border: 1px solid #dcdcdc;
-  resize: none;
-}
-
-.rates {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 24px;
-}
-
-.rate {
-  padding: 12px 24px;
-  border: 1px solid #dcdcdc;
-  
-  p {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-}
-
-.stars {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-
-  svg {
-    color: #999;
-    font-size: 24px;
-    transition: 0.2s ease;
-
-    &:hover {
-      cursor: pointer;
-      color: rgba(#ffd800, 0.8);
-    }
-  }
-}
-
-.active {
-  color: #ffd800 !important;
-}
-
-.btn {
-  margin: 16px 0 32px;
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 8px;
-  background: #E32636;
-  color: #fff;
-  font-weight: 600;
-  transition: 0.2s ease;
-
-  &:hover {
-    cursor: pointer;
-    background: rgba(#E32636, 0.9);
-  }
-}
-
-.reviews {
+.dormitoryPage {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
+  align-items: center;
 
-.review {
-  padding: 12px 28px;
-  border: 1px solid #dcdcdc;
+  .imageGallery {
+    display: flex;
 
-  h4 {
-    font-size: 18px;
-    font-weight: 400;
-    color: #E32636;
-    margin-bottom: 4px;
+    .mainImage {
+      width: 669px;
+      height: 540px;
+      border-radius: 16px;
+      background: #c2c6cc;
+      cursor: pointer;
+      transition: $transition;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .imageThumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 20px;
+    
+      img {
+        width: 315px;
+        height: 260px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        background: #c2c6cc;
+        cursor: pointer;
+        transition: $transition;
+    
+        &:not(:last-child) {
+          margin-right: 10px; // Add space between images except for the last one
+        }
+    
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    
+      .morePhotos {
+        width: 315px;
+        height: 260px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: #c2c6cc;
+        font-size: 48px;
+        font-weight: 700;
+        color: #484848;
+        flex-direction: column;
+    
+        &::after {
+          content: "More Photos";
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+    
   }
 
-  h6 {
-    font-size: 18px;
-    font-weight: 600;
+  .details {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    .leftColumn {
+      width: 70%;
+
+      .header {
+        margin-bottom: 20px;
+
+        h2 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 28px;
+          font-weight: 700;
+          color: #484848;
+        }
+
+        .headerInfo {
+          font-family: "Montserrat", sans-serif;
+          font-size: 16px;
+          color: #9a9a9a;
+        }
+      }
+
+      .description {
+        margin-bottom: 20px;
+
+        h3 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: #484848;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-family: "Montserrat", sans-serif;
+          font-size: 16px;
+          color: #9a9a9a;
+          line-height: 1.5;
+        }
+      }
+
+      .extras {
+        margin-bottom: 20px;
+
+        h3 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: #484848;
+          margin-bottom: 10px;
+        }
+
+        .extrasList {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          p {
+            background: #eff0f2;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: "Milliard", sans-serif;
+            font-size: 16px;
+            color: #484848;
+          }
+        }
+      }
+
+      .amenities {
+        margin-bottom: 20px;
+
+        h3 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: #484848;
+          margin-bottom: 10px;
+        }
+
+        .amenitiesList {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          .amenity {
+            display: flex;
+            align-items: center;
+            background: #eff0f2;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: "Milliard", sans-serif;
+            font-size: 16px;
+            color: #484848;
+
+            svg {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+
+      .reviews {
+        margin-top: 40px;
+      
+        h3 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: $primaryColor;
+          margin-bottom: 20px;
+        }
+      
+        .reviewForm {
+          display: flex;
+          flex-direction: column;
+          background: $secondaryColor;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: $boxShadow;
+          margin-bottom: 30px;
+      
+          .reviewTextarea {
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+            color: $textColor;
+            padding: 10px;
+            border: 1px solid $borderColor;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            resize: vertical;
+            transition: border-color $transition;
+            
+            &:focus {
+              border-color: $primaryColor;
+            }
+          }
+      
+          .rates {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+      
+            .rateCategory {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              flex: 1;
+              margin: 0 10px;
+      
+              p {
+                font-family: "Montserrat", sans-serif;
+                font-size: 14px;
+                color: $textColor;
+                margin-bottom: 5px;
+              }
+      
+              .stars {
+                display: flex;
+      
+                svg {
+                  font-size: 20px;
+                  cursor: pointer;
+                  color: $grayText;
+                  transition: color $transition;
+      
+                  &.active {
+                    color: $primaryColor;
+                  }
+      
+                  &:hover {
+                    color: darken($primaryColor, 10%);
+                  }
+                }
+              }
+            }
+          }
+      
+          .btn {
+            background: $primaryColor;
+            color: $whiteColor;
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: background $transition, transform $transition;
+            align-self: flex-start;
+      
+            &:hover {
+              background: darken($primaryColor, 10%);
+              transform: scale(1.05);
+            }
+          }
+        }
+      
+        .reviewControls {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        
+          label {
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+            color: $textColor;
+        
+            select {
+              margin-left: 10px;
+              padding: 5px;
+              border: 1px solid $borderColor;
+              border-radius: 5px;
+              background-color: $secondaryColor;
+              transition: border-color $transition;
+        
+              &:focus {
+                border-color: $primaryColor;
+              }
+            }
+          }
+        }
+        
+        .reviewList {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        
+          .review {
+            background: $whiteColor;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: $boxShadow;
+            border: 1px solid $borderColor;
+            transition: transform $transition, box-shadow $transition;
+        
+            &:hover {
+              transform: scale(1.02);
+              box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 25px -3px, rgba(0, 0, 0, 0.1) 0px 10px 10px -2px;
+            }
+        
+            h4 {
+              font-family: "Montserrat", sans-serif;
+              font-size: 20px;
+              font-weight: 700;
+              color: $primaryColor;
+              margin-bottom: 5px;
+            }
+        
+            p {
+              font-family: "Montserrat", sans-serif;
+              font-size: 16px;
+              color: $textColor;
+              margin-bottom: 10px;
+              line-height: 1.6;
+            }
+        
+            .reviewDetails {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 10px;
+        
+              .reviewDate {
+                font-family: "Montserrat", sans-serif;
+                font-size: 14px;
+                color: $grayText;
+              }
+        
+              .reviewAverageRate {
+                font-family: "Montserrat", sans-serif;
+                font-size: 14px;
+                color: $textColor;
+                font-weight: 600;
+              }
+            }
+        
+            .reviewRatings {
+              display: flex;
+              flex-wrap: wrap;
+              font-family: "Montserrat", sans-serif;
+              font-size: 14px;
+              color: $textColor;
+              margin-top: 10px;
+        
+              .rating {
+                display: flex;
+                align-items: center;
+                margin-right: 15px;
+                padding: 5px 10px;
+                background: $secondaryColor;
+                border-radius: 5px;
+                font-weight: 600;
+        
+                svg {
+                  margin-right: 5px;
+                  color: $primaryColor;
+                }
+        
+                span {
+                  margin-left: 5px;
+                }
+              }
+            }
+          }
+        }
+        
+        
+        
+        
+      }
+      
+      
+      
+      
+      
+    }
+
+   .rightColumn {
+  width: 100%;
+  max-width: 350px;
+  background: $secondaryColor;
+  box-shadow: $boxShadow;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: $textColor;
+  margin: 20px 0;
+
+  .price {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: $textColor; // Neutral color for the label
+    margin-bottom: 20px;
+
+    .priceValue {
+      color: $primaryColor; // Highlighted color for the price amount
+      font-size: 28px;
+      font-weight: 800;
+    }
   }
 
-  p {
+  .info {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+
+    p {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      color: $textColor;
+      margin-bottom: 10px;
+
+      span {
+        font-weight: 700;
+        color: $primaryColor;
+      }
+    }
+  }
+
+  .chatButton {
+    width: 100%;
+    padding: 10px 0;
+    background-color: $primaryColor;
+    color: $whiteColor;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px;
-    color: #999;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: background $transition;
+
+    &:hover {
+      background-color: darken($primaryColor, 10%);
+    }
+  }
+
+  .contactInfo {
+    width: 100%;
+    text-align: left;
+
+    p {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      color: $textColor;
+      margin-bottom: 10px;
+
+      span {
+        font-weight: 700;
+        color: $primaryColor;
+      }
+    }
+  }
+
+  &.fixed {
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px); // Adjusted for padding and top position
+    overflow-y: auto; // Make it scrollable if content overflows
+  }
+}
+    
+  }
+
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .lightboxImage {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .prevButton,
+    .nextButton,
+    .closeButton {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    .prevButton {
+      left: 10px;
+    }
+
+    .nextButton {
+      right: 10px;
+    }
+
+    .closeButton {
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .details {
+      flex-direction: column;
+
+      .leftColumn,
+      .rightColumn {
+        width: 100%;
+      }
+
+      .rightColumn {
+        margin-top: 20px;
+      }
+    }
   }
 }

@@ -9,6 +9,7 @@ import AdminUsersPage from "@pages/AdminUsersPage";
 import AdminDormitoriesPage from "@pages/AdminDormitoriesPage";
 import CreateDormitoryPage from "@pages/CreateDormitoryPage";
 import EditDormitoryPage from "@pages/EditDormitoryPage";
+import ComparingPage from "@pages/ComparingPage";
 import {
   ADMIN_DORMITORIES_PAGE_ROUTE,
   ADMIN_USERS_PAGE_ROUTE,
@@ -19,7 +20,8 @@ import {
   HOME_PAGE_ROUTE,
   LOGIN_PAGE_ROUTE,
   MY_ACCOUNT_PAGE_ROUTE,
-  REGISTER_PAGE_ROUTE
+  REGISTER_PAGE_ROUTE,
+  COMPARING_PAGE_ROUTE
 } from "./consts";
 
 export const routes = [
@@ -62,6 +64,10 @@ export const routes = [
   {
     path: EDIT_DORMITORY_PAGE_ROUTE,
     element: EditDormitoryPage
+  },
+  {
+    path: COMPARING_PAGE_ROUTE,
+    element: ComparingPage
   },
   {
     path: "*",

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import useAuth from "@hooks/useAuth";
 import {
   ADMIN_USERS_PAGE_ROUTE,
+  COMPARING_PAGE_ROUTE,
   DORMITORIES_PAGE_ROUTE,
   HOME_PAGE_ROUTE,
   LOGIN_PAGE_ROUTE,
@@ -10,13 +11,17 @@ import {
 } from "@utils/consts";
 import styles from "./Navbar.module.scss";
 
+import logo from "../../assets/logo_dorm.png";
+
 export default function Navbar() {
   const { isAuth } = useAuth();
   const user = useSelector((state) => state.user.user);
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <div className={styles.logo}>LOGO</div>
+        <div className={styles.logo}>
+          <img src={logo} alt="Logo" className={styles.logoImage} />
+        </div>
         <div>
           <div className={styles.list}>
             <Link to={HOME_PAGE_ROUTE} className={styles.link}>
@@ -25,7 +30,7 @@ export default function Navbar() {
             <Link to={DORMITORIES_PAGE_ROUTE} className={styles.link}>
               Dormitories
             </Link>
-            <Link to={HOME_PAGE_ROUTE} className={styles.link}>
+            <Link to={COMPARING_PAGE_ROUTE} className={styles.link}>
               Comparing
             </Link>
           </div>

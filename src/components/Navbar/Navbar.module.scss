@@ -1,12 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .header {
   padding: 16px 0;
   border-bottom: 1px solid #dcdcdc;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   font-size: 24px;
   font-weight: 600;
+
+  .logoImage {
+    width: 55px;
+    height: auto;
+  }
 }
+
 
 .nav {
   width: 1440px;

@@ -69,7 +69,7 @@ export default function EditDormitoryPage() {
       setHasDailyCleaner(ensureBoolean(dorm.amenties.hasDailyCleaner));
     }
   }, [dorm]);
-
+  console.log(dorm);
   const navigateTo = useNavigate();
 
   async function updateDorm(e) {
@@ -92,36 +92,33 @@ export default function EditDormitoryPage() {
     }
 
     try {
+      const body = {
+        slug,
+        name,
+        workEmail,
+        phoneNumber,
+        description,
+        price,
+        size,
+        capacity,
+        city,
+        location,
+        extras,
+        hasTelevision,
+        hasWiFi,
+        hasWasher,
+        hasBalcony,
+        hasCleaner,
+        hasRadio,
+        hasLift,
+        hasDailyCleaner
+      };
       setIsLoading(true);
-      await axiosInstance.patch(
-        `/dorm/${id}`,
-        {
-          slug,
-          name,
-          workEmail,
-          phoneNumber,
-          description,
-          price,
-          size,
-          capacity,
-          city,
-          location,
-          extras,
-          hasTelevision,
-          hasWiFi,
-          hasWasher,
-          hasBalcony,
-          hasCleaner,
-          hasRadio,
-          hasLift,
-          hasDailyCleaner
-        },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token")
-          }
+      await axiosInstance.patch(`/dorm/${id}`, body, {
+        headers: {
+          Authorization: localStorage.getItem("token")
         }
-      );
+      });
       navigateTo(ADMIN_DORMITORIES_PAGE_ROUTE);
     } catch (error) {
       alert(error.message);

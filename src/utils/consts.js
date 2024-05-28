@@ -8,3 +8,4 @@ export const ADMIN_USERS_PAGE_ROUTE = "/admin/users";
 export const ADMIN_DORMITORIES_PAGE_ROUTE = "/admin/dorms";
 export const CREATE_DORMITORY_PAGE_ROUTE = "/admin/dorms/create";
 export const EDIT_DORMITORY_PAGE_ROUTE = "/admin/dorms/:id";
+export const COMPARING_PAGE_ROUTE = "/comparing";

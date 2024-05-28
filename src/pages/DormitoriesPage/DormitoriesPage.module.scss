@@ -1,20 +1,105 @@
+$primaryColor: hsl(348, 92%, 38%);
+$secondaryColor: hsl(180, 17%, 95%);
+$colorOne: hsl(15, 74%, 70%);
+$colorTwo: hsl(68, 85%, 35%);
+$hoverColor: hsl(225, 56%, 59%);
+$whiteColor: hsl(0, 0%, 100%);
+$blackColor: hsl(0, 0%, 12%);
+$textColor: hsl(240, 1%, 48%);
+$borderColor: hsl(0, 0%, 83%);
+$whiteColorDim: hsl(0, 0%, 93%);
+$grayBg: hsl(0, 0%, 96%);
+$grayText: rgb(145, 145, 145);
+$inputColor: hsl(330, 12%, 97%);
+$boxShadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+  rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+$transition: 0.4s ease;
+
+// Define new colors for the overall rate badge
+$rateBackgroundColor: hsl(120, 50%, 40%); // Darker green for background
+$rateTextColor: $whiteColor; // White text color for contrast
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 .title {
   font-size: 36px;
   line-height: 42px;
   font-weight: 700;
   margin-bottom: 36px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 24px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  display: block;
+  background-color: $inputColor;
+  transition: border-color $transition, box-shadow $transition;
+
+  &:focus {
+    border-color: $primaryColor;
+    box-shadow: 0 0 5px rgba($primaryColor, 0.5);
+  }
+}
+
+.sorting {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  label {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+  select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    background-color: $inputColor;
+    transition: border-color $transition, box-shadow $transition;
+
+    &:hover,
+    &:focus {
+      border-color: $primaryColor;
+      box-shadow: 0 0 5px rgba($primaryColor, 0.5);
+    }
+  }
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 24px 40px;
+  padding: 0 16px;
 }
 
 .item {
-  border: 1px solid #dcdcdc;
+  border: 1px solid $borderColor;
+  border-radius: 8px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: $boxShadow;
+  transition: box-shadow 0.2s ease, transform 0.3s ease;
+  animation: fadeInUp 0.5s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
 }
 
 .img {
@@ -24,38 +109,183 @@
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
+    border-bottom: 1px solid $borderColor;
   }
 }
 
 .block {
   padding: 12px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   h2 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 12px;
+    color: $blackColor;
   }
 
   p {
     font-size: 14px;
-    line-height: 16px;
-    color: #949292;
+    line-height: 1.5;
+    color: $textColor;
     text-align: justify;
     margin-bottom: 16px;
   }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    &__item {
+      font-size: 14px;
+      font-weight: 600;
+      color: $textColor;
+    }
+  }
+
+  .overallRate {
+    font-size: 16px;
+    font-weight: bold;
+    color: $rateTextColor;
+    background-color: $rateBackgroundColor;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+
+    &::before {
+      content: "★";
+      color: gold;
+      margin-right: 4px;
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: $primaryColor;
+    color: $whiteColor;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.2s ease, transform 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      background: lighten($primaryColor, 10%);
+      transform: translateY(-3px);
+    }
+  }
 }
 
-.btn {
-  display: inline-block;
-  padding: 8px 18px;
+.dormitorySorting {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid $borderColor;
   border-radius: 8px;
-  background: #E32636;
-  color: #fff;
-  font-weight: 600;
-  transition: 0.2s ease;
+  background-color: $whiteColor;
+  box-shadow: $boxShadow;
+  transition: opacity $transition, transform $transition;
 
-  &:hover {
+  &.enter {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  &.enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dormitory-sorting-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px; // Adjust the gap between checkbox and label
+    padding: 8px;
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    background-color: $inputColor;
+    transition: border-color $transition, box-shadow $transition;
+
+    &:hover {
+      border-color: $primaryColor;
+      box-shadow: 0 0 5px rgba($primaryColor, 0.5);
+    }
+
+    input {
+      accent-color: $primaryColor;
+      transition: transform $transition;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    label {
+      font-size: 14px;
+      transition: color $transition;
+
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    background-color: $whiteColor;
+    border: 1px solid $borderColor;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border-radius: 4px;
     cursor: pointer;
-    background: rgba(#E32636, 0.9);
+    transition: background-color $transition, transform $transition;
+
+    &:hover {
+      background-color: $primaryColor;
+      color: $whiteColor;
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background-color: $primaryColor;
+      color: $whiteColor;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
